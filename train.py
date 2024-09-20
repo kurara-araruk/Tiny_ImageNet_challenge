@@ -58,7 +58,7 @@ classes = sorted(filter(pattern.fullmatch, os.listdir(train_data_root)))
 class_idx = {cls_name: idx for idx, cls_name in enumerate(classes)}
 
 # データの読み込み
-full_dataset = CustomImageDataset(root_dir=train_data_root, mode='full', class_idx=class_idx, transform=transform_train)
+full_dataset = CustomImageDataset(root_dir=train_data_root, mode='full', class_idx=class_idx)
 train_data, val_data = train_test_split(full_dataset.data, test_size=0.2, random_state=42)
 
 train_set = CustomImageDataset(root_dir=train_data_root, mode='train', class_idx=class_idx, transform=transform_train, load_data=train_data)
